@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hennaholic</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="icon" href="i1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <nav class="navbar">
+       <img src="i1.png" style="height: 60px; width: 60px; margin-right: 10px;" alt="">
+        <h1 style="margin-right:auto;">Henn.aholic</h1>
+        <div class="nav-links">
+        <p class="nav-link"><a href="index.html"><h4>Home</h4></a></p>
+        <p class="nav-link"><a href="design.html"><h4>Designs</h4></a></p>
+        <p class="nav-link"><a href="contact.html"><h4>Contact</h4></a></p>
+        </div>
+        <div class="menu-toogle" onclick="shownavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+            </nav>
+
+            <div class="side-navbar">
+                <p style="text-align: right;" onclick="closenavbar()">
+                    <i class="fa-solid fa-xmark"></i>
+                </p>
+        
+                <div class="side-nav-links">
+                    <p class="side-nav-link"><a href="index.html">Home</a></p>
+                    <p class="side-nav-link"><a href="design.html">Designs</a></p>
+                    <p class="side-nav-link"><a href="contact.html">Contact</a></p>
+                    </div>
+            
+        </div>
+ <div class="contform">
+    <div class="form1">
+        <h3>Contact us</h3>
+        <form action="#" name="submit-to-google-sheet">
+        <p style="margin-top: 20px;">Name:</p>
+        <input type="text" name="Name" style="margin-top: 20px;" placeholder="Enter your name">
+        <p style="margin-top: 20px;">Email:</p>
+        <input type="text" name="Email" style="margin-top: 20px;" placeholder="Enter your email">
+        <p style="margin-top: 20px;">Message:</p>
+        <textarea name="Message" id="" cols="30" rows="10" style="margin-top: 20px; width:80%; " placeholder="Type message"></textarea>
+    </div>
+    <div class="bb1">
+        <input type="reset" class="bb">
+        <button type="submit" class="sub" value="submit">submit</button>
+    </div>  
+</form>
+<span id="msgg"></span>
+ </div>       
+
+ 
+ <div class="bottom1"><div class="bottom" style="margin-top: 50px;">
+ <h1 >Henn.aholic</h1>
+
+<p>Adorned in henna, painted in love.</p>
+<script src="main.js"></script>   
+<div class="icon" style="margin-top: 4px;  justify-content: center;">
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-facebook"></i> 
+    <p>henn.aholic</p> 
+    
+  </div>
+  <div class="gm">henna.aholic29@gmail.com</div>
+  <div class="copy" style="margin-top: 4px;  justify-content: center;"><i class="fa-solid fa-copyright" ></i><p>COPYRIGHT BY @henna.holic</p></div>
+</div>
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyBR0wcHYDwweV1P2yX28Tbae_uzPPwJjBj2XVeR2fS_VVnO3u6n6FFWYenwgpa5niP/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msgg=document.getElementById("msgg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {msgg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msgg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
